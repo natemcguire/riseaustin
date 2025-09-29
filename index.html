@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rise Austin - Vote NO on Prop Q</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #e3f2fd 0%, #e8f5e9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #64b5f6, #81c784);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tagline {
+            font-size: 1.5em;
+            font-weight: 300;
+        }
+
+        .hero-section {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .alert-box {
+            background: linear-gradient(135deg, #ffebee, #fff3e0);
+            border-left: 5px solid #ef5350;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .alert-box h2 {
+            color: #c62828;
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+
+        .tax-increase {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .card h3 {
+            color: #42a5f5;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .card li:before {
+            content: "•";
+            color: #66bb6a;
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+        }
+
+        .impact-section {
+            background: linear-gradient(135deg, #f3f4f6, #e8f5e9);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .impact-section h2 {
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+
+        .action-section {
+            background: linear-gradient(135deg, #4fc3f7, #66bb6a);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .action-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .email-signup {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px auto;
+            max-width: 600px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .email-signup h3 {
+            color: #42a5f5;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .mailchimp-placeholder {
+            background: #f5f5f5;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px dashed #90caf9;
+            color: #666;
+            font-style: italic;
+        }
+
+        .fact-highlight {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+
+        .fact-highlight strong {
+            color: #e65100;
+        }
+
+        .voting-info {
+            background: linear-gradient(135deg, #e1f5fe, #e0f2f1);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .voting-info h3 {
+            color: #0277bd;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .dates {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .date-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .date-card strong {
+            color: #4caf50;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ef5350, #ff7043);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 20px 10px;
+            box-shadow: 0 5px 20px rgba(239, 83, 80, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(239, 83, 80, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            margin-top: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .footer p {
+            font-size: 1.2em;
+            color: #546e7a;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .hero-section {
+                padding: 40px 20px;
+            }
+
+            .action-section {
+                padding: 30px 20px;
+            }
+
+            .dates {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rise Austin</h1>
+            <p class="tagline">Vote NO on Prop Q</p>
+        </header>
+
+        <div class="hero-section">
+            <h2 style="color: #d32f2f; font-size: 2.5em; margin-bottom: 20px;">Prop Q Makes Austin Less Affordable</h2>
+            <div class="alert-box">
+                <h2>THIS IS A TAX INCREASE</h2>
+                <p style="font-size: 1.3em;">Prop Q sets a new baseline tax rate, <strong>forever</strong>.</p>
+                <p class="tax-increase">If Prop Q passes, the city property tax rate will increase a staggering 20.2%!</p>
+            </div>
+        </div>
+
+        <div class="impact-section">
+            <h2>Who Will Pay More if Prop Q Passes?</h2>
+            <h3 style="text-align: center; color: #d32f2f; font-size: 2em; margin-bottom: 30px;">EVERYONE!</h3>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px;">Austin taxpayers will face a 20.2% increase in the city portion of their property taxes.</p>
+
+            <div class="content-grid">
+                <div class="card">
+                    <h3>🏠 Homeowners</h3>
+                    <p>City property taxes increase to 57¢ per $100 of the property's taxable value. Homestead exemptions only reduce taxable property value, not the tax rate.</p>
+                </div>
+                <div class="card">
+                    <h3>🏢 Renters</h3>
+                    <p>Expect higher rents upon renewal. Landlords do not qualify to receive homestead exemptions. Tax increases will pass to renters.</p>
+                </div>
+                <div class="card">
+                    <h3>💼 Businesses</h3>
+                    <p>Plan for increased overhead costs. Customers will see higher prices. Property tax increases impact employee hiring and wages.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-section">
+            <h2>What Can We Do About It?</h2>
+            <p style="font-size: 1.5em; margin: 20px 0;">Vote NO on Prop Q</p>
+            <p style="font-size: 1.1em; margin: 20px auto; max-width: 800px;">
+                Austin City Council cannot raise property tax rates beyond the voter approval rate without our consent.
+                Texas law allows cities to raise revenue by 3.5% through property taxes without voter permission.
+                Prop Q seeks to exceed this limit, requiring a Tax Rate Election (TRE). Prop Q is on the ballot Nov 4.
+            </p>
+            <p style="margin-top: 30px;">
+                Educate yourself at AustinTaxRateElection.com and share what you learn with your community.
+            </p>
+        </div>
+
+        <div class="content-grid">
+            <div class="card">
+                <h3>What Has Austin Done to Control Spending?</h3>
+                <p style="color: #d32f2f; font-size: 1.5em; font-weight: bold; margin: 20px 0;">NOTHING!</p>
+                <p>At Budget Town Hall meetings, residents have asked, "What have you done to avoid tax increases?" Most Council Members dodged the question, while Mayor Pro Tem Vanessa Fuentes bluntly stated, "There's nothing we can do."</p>
+                <p style="margin-top: 20px;"><strong>Austin City Council demands WE PAY MORE.</strong></p>
+                <p>Council passed a record breaking $6.3B budget. Poor spending priorities resulted in a $33M shortfall, prompting a $110M tax hike, which is 70% more than what was needed.</p>
+            </div>
+
+            <div class="card">
+                <h3>What If Prop Q Fails?</h3>
+                <p style="font-weight: bold; margin-bottom: 15px;">Austin City Council will rework the budget.</p>
+                <p>If Prop Q fails, the city must align its budget with projected revenues for the next fiscal year.</p>
+                <p style="margin-top: 20px;">The Austin City Council can prioritize essential services or discretionary spending, and residents can hold them accountable for their choices.</p>
+            </div>
+        </div>
+
+        <div class="fact-highlight">
+            <strong>Did you know?</strong> The City of Austin Logo Cost $1.1 MILLION.
+            <br>Do you trust Austin City Council to spend wisely?
+        </div>
+
+        <div class="email-signup">
+            <h3>Stay Informed - Join Our Movement</h3>
+            <div class="mailchimp-placeholder">
+                [Mailchimp Email Signup Form Placeholder]
+                <br><br>
+                Add your Mailchimp embed code here
+            </div>
+        </div>
+
+        <div class="voting-info">
+            <h3>Important Voting Dates</h3>
+            <div class="dates">
+                <div class="date-card">
+                    <strong>Registration Deadline</strong>
+                    October 6, 2025
+                </div>
+                <div class="date-card">
+                    <strong>Early Voting</strong>
+                    October 20-31, 2025
+                </div>
+                <div class="date-card">
+                    <strong>Election Day</strong>
+                    November 4, 2025
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2 style="color: #ef5350; font-size: 2em; margin-bottom: 20px;">Vote NO on Prop Q</h2>
+            <p><strong>Demand Accountability. Make Austin City Council Look Out for US!</strong></p>
+            <p style="margin-top: 20px;">This isn't Right or Left. This is Theft.</p>
+            <p>Get the Facts at AustinTaxRateElection.com</p>
+            <div style="margin-top: 30px;">
+                <a href="#" class="cta-button">Vote NO on Prop Q</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
