@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rise Up Austin - Bold Solutions Without Divides</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0FA14C;
+            --secondary: #44499D;
+            --accent: #FFDE4A;
+            --dark: #1a1a1a;
+            --gray: #64748b;
+            --light-gray: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo img {
+            height: 80px;
+        }
+
+        .hero .logo-text {
+            font-weight: 800;
+            font-size: 4rem;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+
+        .logo-name {
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: #0d8840;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(15, 161, 76, 0.3);
+        }
+
+        /* Hero */
+        .hero {
+            margin-top: 110px;
+            padding: 4rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-logo {
+            height: 300px;
+            flex-shrink: 0;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 1.125rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            background: var(--secondary);
+            padding: 3rem;
+            border-radius: 16px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: white;
+            line-height: 1.8;
+        }
+
+        /* Issues Section */
+        .issues {
+            padding: 6rem 2rem;
+            background: var(--light-gray);
+        }
+
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .issue-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .issue-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .issue-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .issue-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .issue-card p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* Current Initiative */
+        .initiative {
+            padding: 6rem 2rem;
+            background: var(--secondary);
+            color: white;
+        }
+
+        .initiative-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .initiative h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .initiative p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .initiative-cta {
+            display: inline-flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .cta-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--primary);
+            padding: 4rem;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .email-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .email-form button {
+            padding: 1rem 2rem;
+            background: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .email-form button:hover {
+            background: #000;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+        }
+
+        .footer-disclaimer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 1.5rem;
+                margin-top: 90px;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .logo img {
+                height: 60px;
+            }
+
+            .logo-name {
+                font-size: 1rem;
+            }
+
+            .hero-logo {
+                height: 150px;
+            }
+
+            .hero .logo-text {
+                font-size: 2rem;
+            }
+
+            .section-header {
+                padding: 2rem;
+            }
+
+            .section-header h1 {
+                font-size: 2rem;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .cta-box {
+                padding: 3rem 2rem;
+            }
+
+            .about,
+            .issues,
+            .initiative,
+            .cta {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Rise Up Austin Logo final.png" alt="Rise Up Austin">
+                <span class="logo-name">Rise Up Austin</span>
+            </div>
+            <a href="#join" class="nav-cta">Get Involved</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="Rise Up Austin Logo final.png" alt="Rise Up Austin" class="hero-logo">
+            <div class="logo-text">We are Rise Up Austin,<br>a local grassroots movement.</div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="section-header">
+                <h1>Bold Solutions Without Divides</h1>
+                <p>Rise Up Austin is a coalition of citizens for bold solutions without divides to build a safe, affordable Austin through active participation and accountable leadership.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="issues" id="issues">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Commitments</h2>
+            </div>
+            <div class="issues-grid">
+                <div class="issue-card">
+                    <div class="issue-icon">🏙️</div>
+                    <h3>Safety & Affordability</h3>
+                    <p>Restoring safety and affordability to revive Austin's vibrant spirit and unique community.</p>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-icon">📢</div>
+                    <h3>Community Voice</h3>
+                    <p>Empowering Austinites to rise up and shape policies that echo our community's values.</p>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-icon">⚖️</div>
+                    <h3>Accountable Leadership</h3>
+                    <p>Elevating citizen-statesmen to bring accountable and competent leadership to our local government.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="initiative">
+        <div class="initiative-content">
+            <h2>Vote NO on Prop Q</h2>
+            <p>Prop Q threatens to increase the city's property taxes by 20%, impacting every Austin resident and business forever. Join us in educating voters and protecting affordability.</p>
+            <div class="initiative-cta">
+                <a href="https://drive.google.com/file/d/1uUAaoTnKYzvGzvnodYKpDd6if3w_e0BB/view?usp=drivesdk" class="btn btn-primary" target="_blank">Download Flyer</a>
+                <a href="https://forms.zohopublic.com/votenoqgm1/form/VoteNoonPropQVolunteerSignUp/formperma/JIZv0x1SHfTPzElBK-pv3ysmHO_pVt_g0F20Y_vHouw" class="btn btn-secondary" target="_blank">Volunteer</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="join">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Stay Informed</h2>
+                <p>Join our movement and receive updates on how we're fighting for a better Austin.</p>
+                <form class="email-form" action="https://docs.google.com/forms/d/e/1FAIpQLSf8Tv5FsdIMofPcgpUpjP3bRHOHQSFUHyhA-L_9xZ7PX7e0rw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+                    <input type="email" name="entry.1158133374" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+                <div class="success-message" id="success">✅ Thanks for joining! Check your email.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Rise Up Austin</h3>
+                    <p>A coalition of citizens committed to bold solutions without divides.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" class="social-link">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#issues">Our Issues</a>
+                    <a href="#join">Get Involved</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Current Campaign</h3>
+                    <a href="https://drive.google.com/file/d/1uUAaoTnKYzvGzvnodYKpDd6if3w_e0BB/view?usp=drivesdk" target="_blank">Vote NO on Prop Q</a>
+                    <a href="https://forms.zohopublic.com/votenoqgm1/form/VoteNoonPropQVolunteerSignUp/formperma/JIZv0x1SHfTPzElBK-pv3ysmHO_pVt_g0F20Y_vHouw" target="_blank">Volunteer</a>
+                </div>
+            </div>
+            <div class="footer-disclaimer">
+                <p>Paid for by Rise Up Austin PAC. Not authorized by any candidate or candidate's committee. This communication is not coordinated with or approved by any candidate.</p>
+                <p style="margin-top: 1rem;">© 2025 Rise Up Austin. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var submitted = false;
+        window.addEventListener('load', function() {
+            document.getElementById('hidden_iframe').addEventListener('load', function() {
+                if(submitted) {
+                    document.querySelector('.email-form').style.display = 'none';
+                    document.getElementById('success').style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
